@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Cadastro de Cliente</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="glass">
+        <h1>Cadastro de Cliente</h1>
+        <form id="signup-form">
+          <div class="dono">
+            <label for="fullName">Nome Completo:</label>
+            <input type="text" id="fullName" required />
+
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" required />
+
+            <label for="phone">Telefone:</label>
+            <input type="tel" id="phone" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
+          </div>
+
+          <div class="endereco">
+            <label for="street">Rua:</label>
+            <input type="text" id="street" required />
+
+            <label for="neighborhood">Bairro:</label>
+            <input type="text" id="neighborhood" required />
+
+            <label for="city">Cidade:</label>
+            <input type="text" id="city" required />
+
+            <label for="state">Estado:</label>
+            <input type="text" id="state" required />
+
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" required />
+          </div>
+
+          <div class="pet">
+            <label for="petName">Nome do Pet:</label>
+            <input type="text" id="petName" required />
+
+            <label for="animalType">Tipo de Animal:</label>
+            <input type="text" id="animalType" required />
+
+            <label for="petBreed">Raça do Pet:</label>
+            <input type="text" id="petBreed" required />
+
+            <label for="petPhoto">Foto do Pet:</label>
+            <input type="file" id="petPhoto" accept="image/*" required />
+          </div>
+        </form>
+        <button type="submit">Cadastrar</button>
+        <a href="index.html " target="_blank"> home </a>
+      </div>
+    </div>
+  </body>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url("bgimagecadastro.jpeg");
+      height: 100%;
+    }
+    .glass {
+      background: #7300ff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      width: 70%;
+      height: 70%;
+      background: rgba(149, 18, 170, 0.33);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8.3px);
+      -webkit-backdrop-filter: blur(8.3px);
+      border: 1px solid rgba(149, 18, 170, 1);
+    }
+    #signup-form {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      height: 70%;
+    }
+    .dono {
+      display: flex;
+      flex-direction: column;
+    }
+    .endereco {
+      display: flex;
+      flex-direction: column;
+    }
+    .pet {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+  <script>
+    document
+      .getElementById("signup-form")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const cpf = document.getElementById("cpf").value;
+        const fullName = document.getElementById("fullName").value;
+        const phone = document.getElementById("phone").value;
+        const street = document.getElementById("street").value;
+        const neighborhood = document.getElementById("neighborhood").value;
+        const city = document.getElementById("city").value;
+        const state = document.getElementById("state").value;
+        const cep = document.getElementById("cep").value;
+        const email = document.getElementById("email").value;
+        const petName = document.getElementById("petName").value;
+        const animalType = document.getElementById("animalType").value;
+        const petBreed = document.getElementById("petBreed").value;
+        const petPhoto = document.getElementById("petPhoto").files[0]; // Arquivo de foto
+
+        // Aqui você pode validar e processar os dados, enviar para o servidor, etc.
+      });
+  </script>
+</html>

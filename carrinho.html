@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carrinho de Compras</title>
+  </head>
+  <body>
+    <h1 style="color: #ff6709f1">Carrinho de Compras</h1>
+
+    <div id="product-list">
+      <div class="product">
+        <img
+          src="pictures/WhatsApp Image 2023-05-25 at 12.35.27 (3).jpeg"
+          alt="Rações"
+        />
+        <h2 style="color: #ff6709f1">Rações</h2>
+        <p style="color: #ff6709f1">R$ 45.90</p>
+        <button
+          onclick="addToCart('Rações ', 45.90)"
+          style="color: #9512aa; background-color: #ff670975"
+        >
+          Adicionar ao Carrinho
+        </button>
+      </div>
+      <div class="product">
+        <img
+          src="pictures/WhatsApp Image 2023-05-25 at 12.35.27 (4).jpeg"
+          alt="Petiscos "
+        />
+        <h2 style="color: #ff6709f1">Petiscos</h2>
+        <p style="color: #ff6709f1">R$ 7.90</p>
+        <button
+          onclick="addToCart('Petiscos ', 7.90)"
+          style="color: #9512aa; background-color: #ff670975"
+        >
+          Adicionar ao Carrinho
+        </button>
+      </div>
+      <div class="product">
+        <img
+          src="pictures/WhatsApp Image 2023-05-25 at 12.35.27 (5).jpeg"
+          alt="Roupas"
+        />
+        <h2 style="color: #ff6709f1">Roupas</h2>
+        <p style="color: #ff6709f1">R$ 125.90</p>
+        <button
+          onclick="addToCart('Roupas', 125.90)"
+          style="color: #9512aa; background-color: #ff670975"
+        >
+          Adicionar ao Carrinho
+        </button>
+      </div>
+      <div class="product">
+        <img
+          src="pictures/WhatsApp Image 2023-05-25 at 12.35.27 (6).jpeg"
+          alt="Acessórios "
+        />
+        <h2 style="color: #ff6709f1">Acessórios</h2>
+        <p style="color: #ff6709f1">R$ 150.50</p>
+        <button
+          onclick="addToCart('Acessórios ', 150.50)"
+          style="color: #9512aa; background-color: #ff670975"
+        >
+          Adicionar ao Carrinho
+        </button>
+      </div>
+      <!-- Adicione mais produtos aqui, se necessário -->
+    </div>
+
+    <h2 style="color: #ff6709f1">Itens no Carrinho</h2>
+    <div id="cart-items">
+      <!-- Itens do carrinho serão adicionados aqui dinamicamente -->
+    </div>
+
+    <div class="total">
+      <h3 style="color: #ff6709f1">
+        Total: <span id="cart-total">R$ 0.00</span>
+      </h3>
+      <button
+        onclick="checkout()"
+        style="color: #9512aa; background-color: #ff670975"
+      >
+        Finalizar Compra
+      </button>
+    </div>
+
+    <script>
+      var cartItems = []; // Array para armazenar os itens do carrinho
+
+      function addToCart(productName, price) {
+        var item = {
+          name: productName,
+          price: price,
+        };
+
+        cartItems.push(item);
+        updateCart(); // Atualizar o carrinho
+      }
+
+      function updateCart() {
+        var cartItemsContainer = document.getElementById("cart-items");
+        var cartTotalElement = document.getElementById("cart-total");
+
+        cartItemsContainer.innerHTML = ""; // Limpar o conteúdo atual do carrinho
+
+        var total = 0;
+
+        for (var i = 0; i < cartItems.length; i++) {
+          var item = cartItems[i];
+          var cartItemElement = document.createElement("div");
+          cartItemElement.classList.add("cart-item");
+          cartItemElement.innerHTML =
+            "<h4>" + item.name + "</h4><p>R$ " + item.price.toFixed(2) + "</p>";
+          cartItemsContainer.appendChild(cartItemElement);
+
+          total += item.price;
+        }
+
+        cartTotalElement.textContent = "R$ " + total.toFixed(2);
+      }
+
+      function checkout() {
+        // Lógica para finalizar a compra
+        // Aqui você pode adicionar o processamento de pagamento ou qualquer outra ação necessária
+        alert("Compra finalizada! Obrigado por comprar conosco.");
+      }
+    </script>
+  </body>
+</html>
+<style>
+  /* Estilos CSS básicos */
+  .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #9512aa;
+    padding: 10px;
+    width: 300px;
+    margin-bottom: 10px;
+  }
+  .product img {
+    max-width: 100px;
+  }
+  .cart-item {
+    border: 1px solid #9512aa;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .total {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+</style>
